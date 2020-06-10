@@ -69,12 +69,17 @@ var randomEyesColor = function () {
   return arrColor[randomInteger(4)];
 };
 
-var arrCharacters = [
-  {name: randomName(), coatColor: randomCoatColor(), eyesColor: randomEyesColor()},
-  {name: randomName(), coatColor: randomCoatColor(), eyesColor: randomEyesColor()},
-  {name: randomName(), coatColor: randomCoatColor(), eyesColor: randomEyesColor()},
-  {name: randomName(), coatColor: randomCoatColor(), eyesColor: randomEyesColor()}
-];
+var createCharactersItem = function (arrayLength) {
+  var arrayCharacters = [];
+
+  for (var i = 0; i < arrayLength; i++) {
+    arrayCharacters[i] = {name: randomName(), coatColor: randomCoatColor(), eyesColor: randomEyesColor()};
+  }
+
+  return arrayCharacters;
+};
+
+var arrCharacters = createCharactersItem(4)
 
 var addWizard = function (mas) {
   var fragment = document.createDocumentFragment();
