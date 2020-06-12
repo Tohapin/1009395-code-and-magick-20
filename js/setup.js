@@ -98,3 +98,54 @@ var addWizard = function (mas) {
 };
 
 similarListElement.appendChild(addWizard(arrCharacters));
+
+var setupOpen = document.querySelector('.setup-open');
+var setup = document.querySelector('.setup');
+var setupClose = setup.querySelector('.setup-close');
+var setupUserName = setup.querySelector('.setup-user-name');
+var setupSubmit = setup.querySelector('.setup-submit');
+var setupForm = setup.querySelector('.setup-wizard-form');
+
+var onPopupEscPress = function (evt) {
+  if (evt.key === 'Escape' && document.activeElement != setupUserName) {
+    evt.preventDefault();
+    closePopup();
+  }
+};
+
+var openPopup = function () {
+  setup.classList.remove('hidden');
+
+  document.addEventListener('keydown', onPopupEscPress);
+};
+
+var closePopup = function () {
+  setup.classList.add('hidden');
+
+  document.removeEventListener('keydown', onPopupEscPress);
+};
+
+setupOpen.addEventListener('click', function () {
+  openPopup();
+});
+
+setupOpen.addEventListener('keydown', function (evt) {
+  if (evt.key === 'Enter') {
+    openPopup();
+  }
+});
+
+setupClose.addEventListener('click', function () {
+  closePopup();
+});
+
+setupClose.addEventListener('keydown', function (evt) {
+  if (evt.key === 'Enter') {
+    closePopup();
+  }
+});
+
+setupSubmit.addEventListener('click', function () {
+  setupForm.action = 'https://echo.htmlacademy.ru';
+  setupForm.submit();
+});
