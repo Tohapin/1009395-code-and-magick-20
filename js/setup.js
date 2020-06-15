@@ -79,7 +79,7 @@ var createCharactersItem = function (arrayLength) {
   return arrayCharacters;
 };
 
-var arrCharacters = createCharactersItem(4)
+var arrCharacters = createCharactersItem(4);
 
 var addWizard = function (mas) {
   var fragment = document.createDocumentFragment();
@@ -103,11 +103,9 @@ var setupOpen = document.querySelector('.setup-open');
 var setup = document.querySelector('.setup');
 var setupClose = setup.querySelector('.setup-close');
 var setupUserName = setup.querySelector('.setup-user-name');
-var setupSubmit = setup.querySelector('.setup-submit');
-var setupForm = setup.querySelector('.setup-wizard-form');
 
 var onPopupEscPress = function (evt) {
-  if (evt.key === 'Escape' && document.activeElement != setupUserName) {
+  if (evt.key === 'Escape' && document.activeElement !== setupUserName) {
     evt.preventDefault();
     closePopup();
   }
@@ -162,9 +160,9 @@ userNameInput.addEventListener('input', function () {
   var valueLength = userNameInput.value.length;
 
   if (valueLength < MIN_NAME_LENGTH) {
-    userNameInput.setCustomValidity('Ещё ' + (MIN_NAME_LENGTH - valueLength) +' симв.');
+    userNameInput.setCustomValidity('Ещё ' + (MIN_NAME_LENGTH - valueLength) + ' симв.');
   } else if (valueLength > MAX_NAME_LENGTH) {
-    userNameInput.setCustomValidity('Удалите лишние ' + (valueLength - MAX_NAME_LENGTH) +' симв.');
+    userNameInput.setCustomValidity('Удалите лишние ' + (valueLength - MAX_NAME_LENGTH) + ' симв.');
   } else {
     userNameInput.setCustomValidity('');
   }
@@ -204,7 +202,7 @@ wizardCoats.addEventListener('click', function () {
 
   while (wizardCoats.style.fill === arrayColorCoat[randomValue]) {
     randomValue = randomInteger(5);
-  };
+  }
 
   wizardCoats.style.fill = arrayColorCoat[randomValue];
   document.querySelector('[name="coat-color"]').value = arrayColorCoat[randomValue];
@@ -215,7 +213,7 @@ wizardEyes.addEventListener('click', function () {
 
   while (wizardEyes.style.fill === arrayColorEyes[randomValue]) {
     randomValue = randomInteger(4);
-  };
+  }
 
   wizardEyes.style.fill = arrayColorEyes[randomValue];
   document.querySelector('[name="eyes-color"]').value = arrayColorEyes[randomValue];
@@ -226,11 +224,8 @@ fireball.addEventListener('click', function () {
 
   while (fireball.style.background === arrayColorFireball[randomValue]) {
     randomValue = randomInteger(4);
-  };
+  }
 
   fireball.style.background = arrayColorFireball[randomValue];
   document.querySelector('[name="fireball-color"]').value = arrayColorFireball[randomValue];
 });
-
-
-
