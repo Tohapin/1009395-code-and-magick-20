@@ -1,5 +1,8 @@
 'use strict';
 
+var MIN_NAME_LENGTH = 2;
+var MAX_NAME_LENGTH = 25;
+
 document.querySelector('.setup').classList.remove('hidden');
 
 document.querySelector('.setup-similar').classList.remove('hidden');
@@ -142,9 +145,6 @@ setupClose.addEventListener('keydown', function (evt) {
     closePopup();
   }
 });
-
-var MIN_NAME_LENGTH = 2;
-var MAX_NAME_LENGTH = 25;
 
 var userNameInput = document.querySelector('.setup-user-name');
 
