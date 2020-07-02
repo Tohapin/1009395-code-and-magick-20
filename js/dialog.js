@@ -129,7 +129,24 @@
     document.querySelector('[name="fireball-color"]').value = arrayColorFireball[randomValue];
   });
 
+  var onLoad = function (data) {
+    window.setup.addWizard(data);
+  };
+
+  var onError = function (message) {
+    var div = document.createElement('div');
+
+    div.classList.add('error-window');
+
+    div.innerHTML = message;
+    window.dialog.setup.appendChild(div);
+  };
+
+  window.backend.load(onLoad, onError);
+
   window.dialog = {
-    setupClose: setupClose
+    setupClose: setupClose,
+    closePopup: closePopup,
+    setup: setup
   };
 })();

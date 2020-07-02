@@ -22,90 +22,29 @@
     return integer;
   };
 
-  var randomName = function () {
-    var arrFirstName = [
-      'Иван',
-      'Хуан Себастьян',
-      'Мария',
-      'Кристоф',
-      'Виктор',
-      'Юлия',
-      'Люпита',
-      'Вашингтон'
-    ];
-
-    var arrLastName = [
-      'да Марья',
-      'Верон',
-      'Мирабелла',
-      'Вальц',
-      'Онопко',
-      'Топольницкая',
-      'Нионго',
-      'Ирвинг'
-    ];
-
-    return arrFirstName[randomInteger(7)] + ' ' + arrLastName[randomInteger(7)];
-  };
-
-  var randomCoatColor = function () {
-    var arrColor = [
-      'rgb(101, 137, 164)',
-      'rgb(241, 43, 107)',
-      'rgb(146, 100, 161)',
-      'rgb(56, 159, 117)',
-      'rgb(215, 210, 55)',
-      'rgb(0, 0, 0)'
-    ];
-
-    return arrColor[randomInteger(5)];
-  };
-
-  var randomEyesColor = function () {
-    var arrColor = [
-      'black',
-      'red',
-      'blue',
-      'yellow',
-      'green'
-    ];
-
-    return arrColor[randomInteger(4)];
-  };
-
-  var createCharactersItem = function (arrayLength) {
-    var arrayCharacters = [];
-
-    for (var i = 0; i < arrayLength; i++) {
-      arrayCharacters[i] = {name: randomName(), coatColor: randomCoatColor(), eyesColor: randomEyesColor()};
-    }
-
-    return arrayCharacters;
-  };
-
-  var arrCharacters = createCharactersItem(4);
-
   var addWizard = function (mas) {
     var fragment = document.createDocumentFragment();
 
     for (var i = 0; i < 4; i++) {
       var wizardElement = similarWizardTemplate.cloneNode(true);
+      var randomWizard = randomInteger(17);
 
-      wizardElement.querySelector('.setup-similar-label').textContent = mas[i].name;
-      wizardElement.querySelector('.wizard-coat').style.fill = mas[i].coatColor;
-      wizardElement.querySelector('.wizard-eyes').style.fill = mas[i].eyesColor;
+      wizardElement.querySelector('.setup-similar-label').textContent = mas[randomWizard].name;
+      wizardElement.querySelector('.wizard-coat').style.fill = mas[randomWizard].colorCoat;
+      wizardElement.querySelector('.wizard-eyes').style.fill = mas[randomWizard].colorEyes;
 
       fragment.appendChild(wizardElement);
     }
 
-    return fragment;
+    similarListElement.appendChild(fragment);
   };
 
-  similarListElement.appendChild(addWizard(arrCharacters));
+  // similarListElement.appendChild(addWizard(arrCharacters));
 
   window.setup = {
     MIN_NAME_LENGTH: MIN_NAME_LENGTH,
     MAX_NAME_LENGTH: MAX_NAME_LENGTH,
-    randomInteger: randomInteger
+    randomInteger: randomInteger,
+    addWizard: addWizard
   };
 })();

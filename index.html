@@ -68,11 +68,7 @@
 </header>
 
 <div class="overlay setup hidden">
-  <form class="setup-wizard-form"
-        method="post"
-        enctype="multipart/form-data"
-        autocomplete="off"
-        action="https://javascript.pages.academy/code-and-magick">
+  <form class="setup-wizard-form">
 
     <div class="setup-title">
       <div class="setup-user">
@@ -210,10 +206,25 @@
   }
 </script>
 <script src="js/setup.js"></script>
+<script src="js/backend.js"></script>
 <script src="js/dialog.js"></script>
 <script src="js/move.js"></script>
 <script src="js/stat.js"></script>
 <script src="js/game.js"></script>
+<script src="js/submit.js"></script>
+
+<style>
+  .error-window {
+    position: absolute;
+    bottom: 100px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    width: 70%;
+    height: auto;
+    background: white;
+  }
+</style>
 
 </body>
 </html>
